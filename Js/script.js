@@ -1,30 +1,22 @@
 "use strict";
 
-const num = 50;
+let num = 50;
 
-if (num < 49) {
-    console.log('Error');
-} else if (num > 100) {
-    console.log('Mnogo');
-} else {
-    console.log('OK');
-}
+// while (num <= 55) {
+//     console.log(num);
+//     num++;
+// }
 
+// do {
+//     console.log(num);
+//     num++;
+// } 
+// while (num < 55);
 
-const numm = 50;
-
-switch (numm) {
-    case 49:
-        console.log('Error');
-        break;
-
-    case 100:
-        console.log('Error');
-        break;
-    case 51:
-        console.log('Ok');
-        break;
-    default:
-        console.log('Ne v etot raz');
-        break;
+for (let i = 1; i < 10; i++) {
+   if (i === 6) {
+       //break;
+       continue;
+   }
+   console.log(i);
 }
