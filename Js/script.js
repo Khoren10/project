@@ -1,51 +1,30 @@
 "use strict";
 
+//Методы строк
+const str = 'test';
 
-// function declaration
-let num = 20;
+console.log(str.toUpperCase());
+console.log(str.toLowerCase());
 
-function showFirstMessage(text) {
-    console.log(text);
-    console.log(num);
-}
-showFirstMessage('Hello world');
+const fruit = "Some fruit";
 
+console.log(fruit.indexOf('e'));
 
-// function calc(a,b) {
-//     return (a + b);
-// }
+const logg = "Hello world";
 
-// console.log(calc(4,3));
-// console.log(calc(6,3));
-// console.log(calc(4,7));
+console.log(logg.slice(6, 10));
+console.log(logg.slice(6));
 
+console.log(logg.substring(6, 10));
 
-function ret() {
-    let num = 50;
+console.log(logg.substr(6, 5));
 
-    // .....
+// Методы чисел 
 
-    return num;
-}
+const num = 12.2;
+console.log(Math.round(num));
 
-const anotherNum = ret();
-console.log(anotherNum);
+const test = "12.2px";
 
-
-//function expression
-
-const logger = function() {
-    console.log('Hello');
-};
-logger();
-
-
-//Стрелочные функции
-
-const calc = (a, b) => {
-    
-    return a + b;
-};
-console.log(calc(4, 2));
-
- 
+console.log(parseInt(test));
+console.log(parseFloat(test));
