@@ -1,53 +1,72 @@
 'use strict';
-
-// To String
-
 // 1)
-console.log(typeof(String(null)));
-console.log(typeof(String(4)));
+let x = 5;
+alert(x++);
+//•Какое будет выведено значение -> Ответ 5;
 
-// 2)
-console.log(typeof(5 + ''));
+//2)
+[] + false - null + true
+console.log([] + false - null + true);
+//•Чему равно такое выражение -> Ответ NaN;
 
-const num = 5;
+//3)
+let y = 1; 
+ x = y = 2; 
+alert(x); 
+//•Что выведет этот код: -> Ответ 2;
 
-console.log("https://vk.com/catalog/" + num);
+//4)
+[] + 1 + 2 
+console.log([] + 1 + 2);
+//•Чему равна сумма -> Ответ 12;
 
-const fontSize = 26 + 'px';
+//5)
+alert( "1"[0] );
+//•Что выведет этот код -> Ответ 1;
 
-// To Number
+//6)
+2 && 1 && null && 0 && undefined 
+console.log(2 && 1 && null && 0 && undefined);
+// Оператор &&(И) всегда запинается на лжи
+// Оператор ||(Или) всегда запинается на правде
+//•Чему равно -> Ответ null
 
-// 1)
-console.log(typeof(Number('4')));
+//7)
+// !!( a && b ) и (a && b)
+console.log(!!( 1 && 2 ) === (1 && 2));
+//•Есть ли разница между выражениями -> Ответ Да есть;
 
-// 2) Унарный плюс
-console.log(typeof(+'5'));
+//8)
+alert( null || 2 && 3 || 4 ); 
+//1) 2 && 3 -> Берется последняя то есть 3
+//2) null || 3 -> 3 
+//3) 3 || 4 -> Равно 3 Потомучто ||(Или) берёт первое истинное значение
+//•Что выведет этот код -> Ответ 3; 
 
-// 3)
-console.log(typeof(parseInt('15px', 10)));
-
-let answer = +prompt("Hello", "");
-
-// To boolean
-
-//0, '', null, undefined,  NaN;  ->  false
-
-// 1)
-let switcher = null;
-
-if(switcher) {
-    console.log('Working...');
+//9)
+let a,
+    b;
+a = [1, 2, 3];
+b = [1, 2, 3];
+if (a == b) {
+  console.log('Yes');
+}else {
+    console.log('Noooo');
 }
-switcher = 1;
+//Правда ли что a == b ? Ответ -> Нет;
 
-if(switcher) {
-    console.log('Working...');
-}
+//10)
+alert( +"Infinity" ); 
+//•Что выведет этот код -> Ответ Infinity;
 
-// 2)
-console.log(typeof(Boolean('4')));
+//11)
+console.log("Ёжик" > "яблоко"); //-> false 
+//"Ёжик" = 1025
+//"яблоко" = 1103
+//•Верно ли сравнение -> Ответ Да;
 
-// 3)
-console.log(typeof(!!"4444"));
+//12)
+console.log(0 || "" || 2 || undefined || true || falsе); 
+//•Чему равно -> Ответ 2;
 
 
