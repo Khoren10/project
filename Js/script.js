@@ -1,72 +1,18 @@
 'use strict';
-// 1)
-let x = 5;
-alert(x++);
-//•Какое будет выведено значение -> Ответ 5;
 
-//2)
-[] + false - null + true
-console.log([] + false - null + true);
-//•Чему равно такое выражение -> Ответ NaN;
+const box = document.getElementById('box');
+console.log(box);
 
-//3)
-let y = 1; 
- x = y = 2; 
-alert(x); 
-//•Что выведет этот код: -> Ответ 2;
+const btns = document.getElementsByTagName('button');
+console.log(btns[0]);
 
-//4)
-[] + 1 + 2 
-console.log([] + 1 + 2);
-//•Чему равна сумма -> Ответ 12;
+const circles = document.getElementsByClassName('circle');
+console.log(circles);
 
-//5)
-alert( "1"[0] );
-//•Что выведет этот код -> Ответ 1;
+const hearts = document.querySelectorAll('.heart');
+hearts.forEach(item => {
+    console.log(item);
+});
 
-//6)
-2 && 1 && null && 0 && undefined 
-console.log(2 && 1 && null && 0 && undefined);
-// Оператор &&(И) всегда запинается на лжи
-// Оператор ||(Или) всегда запинается на правде
-//•Чему равно -> Ответ null
-
-//7)
-// !!( a && b ) и (a && b)
-console.log(!!( 1 && 2 ) === (1 && 2));
-//•Есть ли разница между выражениями -> Ответ Да есть;
-
-//8)
-alert( null || 2 && 3 || 4 ); 
-//1) 2 && 3 -> Берется последняя то есть 3
-//2) null || 3 -> 3 
-//3) 3 || 4 -> Равно 3 Потомучто ||(Или) берёт первое истинное значение
-//•Что выведет этот код -> Ответ 3; 
-
-//9)
-let a,
-    b;
-a = [1, 2, 3];
-b = [1, 2, 3];
-if (a == b) {
-  console.log('Yes');
-}else {
-    console.log('Noooo');
-}
-//Правда ли что a == b ? Ответ -> Нет;
-
-//10)
-alert( +"Infinity" ); 
-//•Что выведет этот код -> Ответ Infinity;
-
-//11)
-console.log("Ёжик" > "яблоко"); //-> false 
-//"Ёжик" = 1025
-//"яблоко" = 1103
-//•Верно ли сравнение -> Ответ Да;
-
-//12)
-console.log(0 || "" || 2 || undefined || true || falsе); 
-//•Чему равно -> Ответ 2;
-
-
+const oneHeart = document.querySelector('.heart');
+console.log(oneHeart);
