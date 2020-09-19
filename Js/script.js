@@ -1,58 +1,33 @@
-/* Задания на урок:
+"use strict";
 
-1) Удалить все рекламные блоки со страницы (правая часть сайта)
 
-2) Изменить жанр фильма, поменять "комедия" на "драма"
+const btns = document.querySelectorAll('button'),
+      overlay = document.querySelector('.overlay');
 
-3) Изменить задний фон постера с фильмом на изображение "bg.jpg". Оно лежит в папке img.
-Реализовать только при помощи JS
 
-4) Список фильмов на странице сформировать на основании данных из этого JS файла.
-Отсортировать их по алфавиту 
-
-5) Добавить нумерацию выведенных фильмов */
-
-'use strict';
-
-const movieDB = {
-    movies: [
-        "Логан",
-        "Лига справедливости",
-        "Ла-ла лэнд",
-        "Одержимость",
-        "Скотт Пилигрим против..."
-    ]
+// btn.onclick = function() {
+//     alert('Hello beyb');
+// };
+// let i = 0;
+const deleteElement = (e) => {
+    console.log(e.target);
+    console.log(e.type);
+    // i++;
+    // if (i == 1) {
+    //     btn.removeEventListener('click', deleteElement);
+    // }
 };
 
-const image = document.querySelectorAll('.promo__adv img'),
-    genre = document.querySelector('.promo__genre'),
-    bg = document.querySelector('.promo__bg'),
-    films = document.querySelector('.promo__interactive-list');
+// btn.addEventListener('click', deleteElement);
+// overlay.addEventListener('click',deleteElement);
 
-
-
-//1)
-image.forEach(element => {
-    element.remove();
+btns.forEach(btn => {
+    btn.addEventListener('click', deleteElement,{once:true});
 });
 
+const link = document.querySelector('a');
 
-//2)
-genre.textContent = 'драма';
-
-
-//3)
-bg.style.backgroundImage = `url(img/bg.jpg)`;
-
-//4)
-films.innerHTML = "";
-
-movieDB.movies.sort();
-
-movieDB.movies.forEach((film, i) => {
-    films.innerHTML += `
-        <li class="promo__interactive-item">${i + 1} ${film}
-           <div class="delete"></div>
-        </li>
-    `;
+link.addEventListener('click', (event) => {
+    event.preventDefault();
+    console.log(event.target);
 });
