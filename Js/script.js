@@ -1,55 +1,58 @@
+/* Задания на урок:
+
+1) Удалить все рекламные блоки со страницы (правая часть сайта)
+
+2) Изменить жанр фильма, поменять "комедия" на "драма"
+
+3) Изменить задний фон постера с фильмом на изображение "bg.jpg". Оно лежит в папке img.
+Реализовать только при помощи JS
+
+4) Список фильмов на странице сформировать на основании данных из этого JS файла.
+Отсортировать их по алфавиту 
+
+5) Добавить нумерацию выведенных фильмов */
+
 'use strict';
 
-const box = document.getElementById('box'),
-      btns = document.getElementsByTagName('button'),
-      circles = document.getElementsByClassName('circle'),
-      hearts = document.querySelectorAll('.heart'),
-      oneHeart = document.querySelector('.heart'),
-      wrapper = document.querySelector('.wrapper');
+const movieDB = {
+    movies: [
+        "Логан",
+        "Лига справедливости",
+        "Ла-ла лэнд",
+        "Одержимость",
+        "Скотт Пилигрим против..."
+    ]
+};
 
-    //   box.style.backgroundColor = 'green';
-    //   box.style.width = '500px';
+const image = document.querySelectorAll('.promo__adv img'),
+    genre = document.querySelector('.promo__genre'),
+    bg = document.querySelector('.promo__bg'),
+    films = document.querySelector('.promo__interactive-list');
 
-box.style.cssText = `background-color: purple; width: 500px`;
 
-btns[1].style.borderRadius = '100%';
-circles[0].style.backgroundColor = 'pink';
 
-// for (let i = 0; i < hearts.length; i++) {
-//     hearts[i].style.backgroundColor = 'green';
-// }
-
-hearts.forEach(item => {
-    item.style.backgroundColor = 'silver';
+//1)
+image.forEach(element => {
+    element.remove();
 });
 
-const div = document.createElement('div');
-//const text = document.createTextNode('Tut bil ya');
 
-div.classList.add('black');
-//document.body.append(div);
-
-wrapper.append(div); // -> В конец
-//wrapper.appendChild(div); // -> Старая версия
-
-//wrapper.prepend(div); // -> В начало 
-//wrapper.before(div);  // -> Перед
-//wrapper.after(div);  // -> После
-
-//hearts[0].after(div);
-
-//wrapper.insertBefore(div,hearts[1]);
+//2)
+genre.textContent = 'драма';
 
 
-//circles[0].remove(); // -> Удаление 
-//wrapper.removeChild(hearts[1]); // -> Старая версия
+//3)
+bg.style.backgroundImage = `url(img/bg.jpg)`;
 
-//hearts[1].replaceWith(circles[0]);
-// wrapper.replaceChild(circles[0], hearts[0]); // ->Старая версия
+//4)
+films.innerHTML = "";
 
+movieDB.movies.sort();
 
-div.innerHTML = '<h2>Hello</h2>';
-
-// div.textContent = "Hello"; // -> Только текст
-
-div.insertAdjacentHTML('afterbegin','<h2>Privet</h2>');
+movieDB.movies.forEach((film, i) => {
+    films.innerHTML += `
+        <li class="promo__interactive-item">${i + 1} ${film}
+           <div class="delete"></div>
+        </li>
+    `;
+});
