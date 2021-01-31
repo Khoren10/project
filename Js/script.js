@@ -1,31 +1,42 @@
-/* Задания на урок:
-
-1) Реализовать функционал, что после заполнения формы и нажатия кнопки "Подтвердить" - 
-новый фильм добавляется в список. Страница не должна перезагружаться.
-Новый фильм должен добавляться в movieDB.movies.
-Для получения доступа к значению input - обращаемся к нему как input.value;
-P.S. Здесь есть несколько вариантов решения задачи, принимается любой, но рабочий.
-
-2) Если название фильма больше, чем 21 символ - обрезать его и добавить три точки
-
-3) При клике на мусорную корзину - элемент будет удаляться из списка (сложно)
-
-4) Если в форме стоит галочка "Сделать любимым" - в консоль вывести сообщение: 
-"Добавляем любимый фильм"
-
-5) Фильмы должны быть отсортированы по алфавиту */
-
 'use strict';
 
+const btns = document.querySelectorAll('button'),
+wrapper = document.querySelector('.btn-block');
 
-window.addEventListener('DOMContentLoaded', () => {
-    const box = document.querySelector('.box');
+// console.log(btns[0].classList.length);  
 
-    box.addEventListener('touchstart', (e) => {
-        
-        e.preventDefault();
-        console.log('start');
-        console.log(e.touches);
-    });
+// console.log(btns[0].classList.item(1));
 
+// console.log(btns[1].classList.add('red'));
+
+// console.log(btns[0].classList.remove('blue'));
+
+// console.log(btns[0].classList.toggle('blue')); //Если есть class то удаляет если нет то добавляет 
+
+// if(btns[1].classList.contains('red')){
+//     console.log('red');                 //Если class есть то true если нет то false
+// }
+
+btns[0].addEventListener('click', () => {
+    // if(!btns[1].classList.contains('red')) {
+    //     btns[1].classList.add('red');
+    // }else {
+    //     btns[1].classList.remove('red');
+    // }
+
+    btns[1].classList.toggle('red');
+  
 });
+
+wrapper.addEventListener('click', (event) => {
+    if(event.target && event.target.tagName == 'BUTTON' ) {
+        console.log('hello');
+    }
+});
+
+const btn = document.createElement('button');
+
+btn.classList.add('red');
+
+wrapper.append(btn);
+
