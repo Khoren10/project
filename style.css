@@ -1,18 +1,20 @@
-.header__logo {
-  background-color: aqua;
+.box {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: rgb(61, 61, 177);
 }
-
-.show {
-  display: block;
+.wrapper {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  border: 3px solid red;
 }
-
-.hide {
-  display: none;
+button {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 100px;
+  height: 40px;
+  background-color: yellow;
+  border: none;
 }
-
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@keyframes fade {from{opacity: 0.1;}to{opacity: 1;}}
