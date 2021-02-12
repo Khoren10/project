@@ -1,40 +1,33 @@
 'use strict';
 
+const now = new Date('2021-02-13');
+// new Date.parse('2021-02-13');
 
-const btn = document.querySelector('.btn');
-let timer,
-    i = 0;
+//Геттеры 
 
-    function myAnimation () {
-        const box = document.querySelector('.box');
-        let pos = 0;
+//  console.log(now);
+//  console.log(now.getFullYear());
+//  console.log(now.getMonth());
+//  console.log(now.getDate());
+//  console.log(now.getDay());
+//  console.log(now.getHours());
+//  console.log(now.getUTCHours());
 
-        const id = setInterval(frame, 10);
-        function frame () {
-         if(pos == 300) {
-             clearInterval(id);
-         }else {
-            pos++;
-            box.style.top = pos + 'px';
-            box.style.left = pos + 'px';
-         }
-        }
-    }
-btn.addEventListener('click', myAnimation);
+// console.log(now.getTimezoneOffset());
+// console.log(now.getTime());
 
-// btn.addEventListener('click', () => {
-//     timer = setInterval(logger, 500);
-// });
+//Сеттеры
 
-// function logger () {
-//     if(i === 3){
-//         clearInterval(timer);
-//     }
-//     console.log('text');
-//     i++;
-// }
+// console.log(now.setHours(40));
+console.log(now);
 
-// let id  = setTimeout(function log(){
-//     console.log('hello');
-//     id = setTimeout(log, 500);      
-// }, 500);
+const start = new Date();
+
+for(let i = 0; i < 100000; i++) {
+        let some = i ** 1;
+}
+
+
+let end = new Date();
+
+alert(`Cikl dolzhen lala za ${end - start} milisekund`);
