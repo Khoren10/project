@@ -1,95 +1,21 @@
 'use strict';
 
-window.addEventListener('DOMContentLoaded', () => {
-        //Tabs
-        const tabs = document.querySelectorAll('.tabheader__item'),
-                tabsContent = document.querySelectorAll('.tabcontent'),
-                tabsParent = document.querySelector('.tabheader__items');
+const box = document.querySelector('.box'),
+        btn = document.querySelector('button');
 
-        function hideTabContent() {
-                tabsContent.forEach(item => {
-                        item.classList.add('hide');
-                        item.classList.remove('show', 'fade');
-                });
-                tabs.forEach(item => {
-                        item.classList.remove('tabheader__item_active');
-                });
-        }
+        // const width = box.clientWidth;
+        // const height = box.clientHeight;
+        const width = box.offsetWidth;
+        const height = box.offsetHeight;
 
-        function showTabContent(i = 0) {
-                tabsContent[i].classList.add('show', 'fade');
-                tabsContent[i].classList.remove('hide');
-                tabs[i].classList.add('tabheader__item_active');
-        }
-        hideTabContent();
-        showTabContent();
-        tabsParent.addEventListener('click', (event) => {
-                const target = event.target;
-                if (target && target.classList.contains('tabheader__item')) {
-                        tabs.forEach((item, i) => {
-                                if (target == item) {
-                                        hideTabContent();
-                                        showTabContent(i);
-                                }
-                        });
-                }
+        console.log(width,height);
+
+        btn.addEventListener('click', () => {
+                box.style.height = box.scrollHeight + 'px';
         });
 
-        //Timer
+        console.log(box.getBoundingClientRect());
+        console.log(box.getBoundingClientRect().top);
 
-        const deadLine = '2021-02-21';
-
-        function getTimeRemaining(endTime) {
-                const t = Date.parse(endTime) - Date.parse(new Date()),
-                        days = Math.floor(t / (1000 * 60 * 60 * 24)),
-                        hours = Math.floor(t / (1000 * 60 * 60) % 24),
-                        minutes = Math.floor((t / 1000 / 60) % 60),
-                        seconds = Math.floor((t / 1000) % 60);
-
-                return {
-                        'total': t,
-                        'days': days,
-                        'hours': hours,
-                        'minutes': minutes,
-                        'seconds': seconds
-                };
-        }
-
-        function getZero(num) {
-                if (num >= 0 && num < 10) {
-                        return `0${num}`;
-                }else {
-                        return num;
-                }
-        }
-
-        function setClock(selector, endTime) {
-                const timer = document.querySelector(selector),
-                        days = timer.querySelector('#days'),
-                        hours = timer.querySelector('#hours'),
-                        minutes = timer.querySelector('#minutes'),
-                        seconds = timer.querySelector('#seconds'),
-                        timeInterval = setInterval(updateClock, 1000);
-
-                updateClock();
-
-                function updateClock() {
-                        const t = getTimeRemaining(endTime);
-
-                        days.innerHTML = getZero(t.days);
-                        hours.innerHTML = getZero(t.hours);
-                        minutes.innerHTML = getZero(t.minutes);
-                        seconds.innerHTML = getZero(t.seconds);
-
-                        if (t.total <= 0) {
-                                clearInterval(timeInterval);
-                        }
-                        if (t.total < 0) {
-                                 timer.innerHTML = `<h3>Акция завершилось</h3>`;
-                                 timer.classList.add('close');
-                        }
-
-                }
-        }
-        setClock('.timer', deadLine);
-});
+        const style = window.getComputedStyle(box);
+        console.log(style);
