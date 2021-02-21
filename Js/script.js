@@ -94,43 +94,23 @@ window.addEventListener('DOMContentLoaded', () => {
         }
         setClock('.timer', deadLine);
 
-        // Modal Способ 1
-
-        // let windowOwn = document.querySelector('.btn_white'),
-        //         windowTwo = document.querySelector('.btn_dark'),
-        //         modal = document.querySelector('.modal'),
-        //         modalClose = modal.querySelector('.modal__close');
-
-        // windowOwn.addEventListener('click', () => {
-        //         modal.style.display = 'block';
-        //         document.body.style.overflow = 'hidden';
-
-        // });
-
-        // windowTwo.addEventListener('click', () => {
-        //         modal.style.display = 'block';
-        //         document.body.style.overflow = 'hidden';
-
-        // });
-
-        // modalClose.addEventListener('click', () => {
-        //         modal.style.display = 'none';
-        //         document.body.style.overflow = '';
-        // });
-        // Modal Способ 2
+        
+        // Modal 
         let modalTrigger = document.querySelectorAll('[data-modal]'),
                 modal = document.querySelector('.modal'),
                 modalClose = modal.querySelector('.modal__close');
                 
+        function openModal () {
+                modal.classList.add('show');
+                modal.classList.remove('hide');
+                document.body.style.overflow = 'hidden';
+                clearInterval(modalTimerId);
+        }
 
         modalTrigger.forEach(btn => {
-                btn.addEventListener('click', () => {
-                        modal.classList.add('show');
-                        modal.classList.remove('hide');
-                        document.body.style.overflow = 'hidden';
-                });
+                btn.addEventListener('click', openModal);
         });
-     
+
         function closeModal () {
                 modal.classList.add('hide');
                 modal.classList.remove('show');
@@ -151,5 +131,16 @@ window.addEventListener('DOMContentLoaded', () => {
                 }
         });
 
+        const modalTimerId = setTimeout(openModal, 5000);
 
+        function showModalByScroll () {
+                if(window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight) 
+                {
+                        openModal();
+                        window.removeEventListener('scroll', showModalByScroll);
+                }
+                
+        }
+
+        window.addEventListener('scroll', showModalByScroll);
 });
