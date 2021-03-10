@@ -1,87 +1,34 @@
 'use strict';
 
-// function showThis(a ,b) {
-//         console.log(this);
-//         function sum() {
-//                 console.log(this);
-//                 return a + b;
-//         }
-//         console.log(sum());
-// }
-// showThis(4, 5);
 
-
-// const obj = {
-//         a: 20,
-//         b: 15,
-//         sum: function() {
-//                 function shout() {
-//                         console.log(this);
-//                 }
-//                 shout();
-//         }
-// };
-
-// obj.sum();
-
-// function User(name, id) {
-//         this.name = name;
-//         this.id = id;
-//         this.human =true;
-//         this.hello = function() {
-//                 console.log(`Hello ${this.name}`);
-//         };
-// }
-// let ivan = new User('ivan', 23);
-
-
-// function sayName(surname){
-//         console.log(this);
-//         console.log(this.name + surname);
-// }
-
-// const user = {
-//         name: 'John'
-// };
-
-// sayName.call(user, 'Smith');
-// sayName.apply(user, ['Smith']);
-
-// function count(num) {
-//         return this*num;
-// }
-
-// const double = count.bind(5);
-// console.log(double(3));
-// console.log(double(13));
-
-const btn = document.querySelector('button');
-
-btn.addEventListener('click', function () {
-        this.style.backgroundColor = 'red';
-});
-// btn.addEventListener('click',  (e) => {
-//         e.target.style.backgroundColor = 'red';
-// });
-
-const obj = {
-        num: 5,
-        sayNumber: function () {
-                const say = () => {
-                        console.log(this.num);
-                };
-
-                say();
+class Rectangle {
+        constructor(height, width) {
+                this.height = height;
+                this.width = width;
         }
-};
+        calcArea() {
+                return this.height * this.width;
+        }
+}
 
-obj.sayNumber();
+class ColoredRectangleWithText extends Rectangle {
+        constructor(height,width,text,bgColor) {
+                super(height,width);
+                this.text = text;
+                this.bgColor = bgColor;
+        }
+        showMyProps () {
+                console.log(`Текст: ${this.text}, цвет: ${this.bgColor}`);
+        }
+}
 
-const double = a => a * 2;
+const div = new ColoredRectangleWithText(2, 4, 'Hello', 'red');
 
-console.log(double(4));
+console.log(div.calcArea());
+div.showMyProps();
 
-//1) Обычная функция: this = window, но если use strict то - undefined
-//2) Контекст у методов объекта - сам объект
-//3) this в контрукторах и классах - это новый экземпляр объекта
-//4) Ручная привязка this: call, apply, bind
+// const square = new Rectangle(10, 10);
+// const long = new Rectangle(2, 100);
+
+// console.log(long.calcArea());
+// console.log(square.calcArea());
